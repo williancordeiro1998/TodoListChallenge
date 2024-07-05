@@ -1,0 +1,125 @@
+basePath: /
+definitions:
+  models.Task:
+    properties:
+      completed:
+        type: boolean
+      description:
+        type: string
+      email:
+        type: string
+      id:
+        type: integer
+      responsible:
+        type: string
+      revert_count:
+        type: integer
+      status:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: Esta é uma API simples de lista de tarefas.
+  title: To-Do List API
+  version: "1.0"
+paths:
+  /tasks:
+    post:
+      consumes:
+      - application/json
+      description: Add a new task to the list
+      parameters:
+      - description: Task to add
+        in: body
+        name: task
+        required: true
+        schema:
+          $ref: '#/definitions/models.Task'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Task'
+      summary: Add a new task
+      tags:
+      - tasks
+    put:
+      consumes:
+      - application/json
+      description: Update the status of an existing task
+      parameters:
+      - description: Task to update
+        in: body
+        name: task
+        required: true
+        schema:
+          $ref: '#/definitions/models.Task'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Task'
+      summary: Update an existing task
+      tags:
+      - tasks
+  /tasks/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a task by its ID
+      parameters:
+      - description: Task ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Task deleted
+          schema:
+            type: string
+      summary: Delete a task
+      tags:
+      - tasks
+  /tasks/completed:
+    get:
+      consumes:
+      - application/json
+      description: Get all tasks that are completed
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Task'
+            type: array
+      summary: Get all completed tasks
+      tags:
+      - tasks
+  /tasks/pending:
+    get:
+      consumes:
+      - application/json
+      description: Get all tasks that are pending
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Task'
+            type: array
+      summary: Get all pending tasks
+      tags:
+      - tasks
+swagger: "2.0"
