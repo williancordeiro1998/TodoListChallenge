@@ -42,6 +42,7 @@ go mod tidy
 swag init
 
 **Execute a aplicação**
-Copiar código
-go run cmd/main.go
+
+go run main.go
+
 Acesse a documentação Swagger em http://localhost:8080/swagger/index.html.
