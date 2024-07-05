@@ -33,15 +33,15 @@ git clone <URL do repositório>
 
 cd TodoListChallenge
 
-Inicialize o módulo Go:
+**Inicialize o módulo Go**
 
 go mod tidy
 
-Gere a documentação OpenAPI:
+**Gere a documentação OpenAPI**
 
 swag init
 
-Execute a aplicação:
+**Execute a aplicação**
 Copiar código
 go run cmd/main.go
 Acesse a documentação Swagger em http://localhost:8080/swagger/index.html.
