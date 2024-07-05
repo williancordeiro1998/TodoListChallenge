@@ -27,9 +27,10 @@ Este projeto é uma implementação do backend de uma lista de tarefas (To-Do Li
 
 ### Passos para Execução
 
-1. Clone o repositório:
+**Clone o repositório**
 
 git clone <URL do repositório>
+
 cd TodoListChallenge
 
 Inicialize o módulo Go:
